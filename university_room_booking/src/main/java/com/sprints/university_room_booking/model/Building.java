@@ -21,6 +21,9 @@ public class Building {
     @Column(nullable = false, unique = true)
     private String name; // e.g., "Engineering Building", "Library"
 
+    @Column(nullable = false)
+    private String address;
+
     // A building can contain many rooms
     @OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
     private List<Room> rooms;
