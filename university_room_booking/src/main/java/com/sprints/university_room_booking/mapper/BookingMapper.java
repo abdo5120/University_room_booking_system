@@ -3,21 +3,18 @@ package com.sprints.university_room_booking.mapper;
 import com.sprints.university_room_booking.dto.BookingRequestDto;
 import com.sprints.university_room_booking.dto.BookingResponseDto;
 import com.sprints.university_room_booking.model.Booking;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class BookingMapper {
 
     private final RoomMapper roomMapper;
     private final UserMapper userMapper;
-
-    public BookingMapper(RoomMapper roomMapper, UserMapper userMapper) {
-        this.roomMapper = roomMapper;
-        this.userMapper = userMapper;
-    }
 
     public Booking toEntity(BookingRequestDto dto) {
         if (dto == null) return null;

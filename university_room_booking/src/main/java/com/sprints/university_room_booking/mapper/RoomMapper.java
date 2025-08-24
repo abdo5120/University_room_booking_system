@@ -4,6 +4,7 @@ import com.sprints.university_room_booking.dto.RoomDto;
 import com.sprints.university_room_booking.dto.RoomSummaryDto;
 import com.sprints.university_room_booking.model.Room;
 import com.sprints.university_room_booking.model.RoomFeature;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
@@ -12,9 +13,12 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
-public class RoomMapper {
+@RequiredArgsConstructor
+public class RoomMapper
+{
 
-    public RoomDto toDTO(Room room) {
+    public RoomDto toDTO(Room room)
+    {
         if (room == null) return null;
 
         RoomDto dto = new RoomDto();
@@ -22,11 +26,13 @@ public class RoomMapper {
         dto.setRoomNumber(room.getRoomNumber());
         dto.setCapacity(room.getCapacity());
 
-        if (room.getBuilding() != null) {
+        if (room.getBuilding() != null)
+        {
             dto.setBuildingId(room.getBuilding().getId());
         }
 
-        if (room.getDepartment() != null) {
+        if (room.getDepartment() != null)
+        {
             dto.setDepartmentId(room.getDepartment().getId());
         }
 
@@ -38,7 +44,8 @@ public class RoomMapper {
         return dto;
     }
 
-    public Room toEntity(RoomDto dto) {
+    public Room toEntity(RoomDto dto)
+    {
         if (dto == null) return null;
 
         Room room = new Room();
@@ -47,14 +54,16 @@ public class RoomMapper {
         return room;
     }
 
-    public Room updateEntityFromDto(Room existing, RoomDto dto) {
+    public Room updateEntityFromDto(Room existing, RoomDto dto)
+    {
         if (existing == null || dto == null) return existing;
         if (dto.getRoomNumber() != null) existing.setRoomNumber(dto.getRoomNumber());
         if (dto.getCapacity() != null) existing.setCapacity(dto.getCapacity());
         return existing;
     }
 
-    public RoomSummaryDto toSummary(Room room) {
+    public RoomSummaryDto toSummary(Room room)
+    {
         if (room == null) return null;
 
         RoomSummaryDto s = new RoomSummaryDto();
@@ -64,12 +73,14 @@ public class RoomMapper {
         return s;
     }
 
-    public List<RoomDto> toDTOList(List<Room> rooms) {
+    public List<RoomDto> toDTOList(List<Room> rooms)
+    {
         if (rooms == null) return null;
         return rooms.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
-    public List<RoomSummaryDto> toSummaryList(List<Room> rooms) {
+    public List<RoomSummaryDto> toSummaryList(List<Room> rooms)
+    {
         if (rooms == null) return null;
         return rooms.stream().map(this::toSummary).collect(Collectors.toList());
     }

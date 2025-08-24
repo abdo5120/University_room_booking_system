@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -30,8 +32,8 @@ public class RoomController {
     // Get available time slots for a room in a date range
     @GetMapping("/{roomId}/availability")
     public ResponseEntity<?> getRoomAvailability(@PathVariable Long roomId,
-                                                 @RequestParam String startDate,
-                                                 @RequestParam String endDate) {
+                                                 @RequestParam LocalDateTime startDate,
+                                                 @RequestParam LocalDateTime endDate) {
         // ... call service ...
         return ResponseEntity.ok(roomService.getRoomAvailability(roomId, startDate, endDate));
     }

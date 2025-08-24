@@ -2,6 +2,7 @@ package com.sprints.university_room_booking.mapper;
 
 import com.sprints.university_room_booking.dto.BookingHistoryDto;
 import com.sprints.university_room_booking.model.BookingHistory;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

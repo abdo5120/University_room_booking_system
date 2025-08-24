@@ -32,7 +32,7 @@ public class DepartmentController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> deleteDepartment(@PathVariable Long id) {
-        departmentService.deleteDepartmentbyId(id);
+        departmentService.deleteDepartmentById(id);
         return ResponseEntity.noContent().build();
     }
 }
