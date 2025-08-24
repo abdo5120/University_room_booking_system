@@ -55,11 +55,14 @@ public class RoomService
     @Transactional
     public RoomDto createRoom(@Valid RoomDto roomDto)
     {
-        if (roomRepository.existsById(roomDto.getId()))
-            throw new RuntimeException("Room already exists");
+        if (roomDto.getBuildingId() == null) {
+            throw new RuntimeException("Building ID is required");
+        }
+
         Room room = roomMapper.toEntity(roomDto);
-        roomRepository.save(room);
-        return roomDto;
+        room.setId(null);
+        Room savedRoom = roomRepository.save(room);
+        return roomMapper.toDTO(savedRoom);
     }
 
     @Transactional

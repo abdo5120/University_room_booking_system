@@ -18,8 +18,7 @@ public class RoomController {
 
     // List all rooms (with optional filters)
     @GetMapping
-    public ResponseEntity<List<RoomSummaryDto>> getAllRooms(/* filters as needed */) {
-        // ... call service ...
+    public ResponseEntity<List<RoomSummaryDto>> getAllRooms() {
         return ResponseEntity.ok(roomService.getAllRooms());
     }
 

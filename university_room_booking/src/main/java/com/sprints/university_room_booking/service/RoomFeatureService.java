@@ -4,16 +4,18 @@ import com.sprints.university_room_booking.dto.RoomFeatureDto;
 import com.sprints.university_room_booking.mapper.RoomFeatureMapper;
 import com.sprints.university_room_booking.model.RoomFeature;
 import com.sprints.university_room_booking.repository.RoomFeatureRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class RoomFeatureService
 {
-    private RoomFeatureRepository roomFeatureRepository;
-    private RoomFeatureMapper roomFeatureMapper;
+    private final RoomFeatureRepository roomFeatureRepository;
+    private final RoomFeatureMapper roomFeatureMapper;
 
     public List<RoomFeatureDto> getAllFeatures()
     {
