@@ -4,7 +4,6 @@ import com.sprints.university_room_booking.dto.UserSummaryDto;
 import com.sprints.university_room_booking.dto.RoleDto;
 import com.sprints.university_room_booking.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

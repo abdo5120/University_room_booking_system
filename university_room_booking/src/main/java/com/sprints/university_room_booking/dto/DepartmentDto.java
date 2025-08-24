@@ -1,13 +1,14 @@
 package com.sprints.university_room_booking.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
 public class DepartmentDto {
 
-    @NotBlank(message = "department id cannot be blank")
+    @NotNull(message = "department id cannot be null")
     private Long id;
 
     @NotBlank(message = "department name cannot be blank")
